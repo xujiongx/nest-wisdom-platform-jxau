@@ -3,11 +3,12 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './server/user/user.module';
+import { AuthModule } from './server/auth/auth.module';
 
 const DB_URL='mongodb+srv://admin:a11049900@cluster0.xql4k.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 @Module({
-  imports: [MongooseModule.forRoot(DB_URL),UserModule],
+  imports: [MongooseModule.forRoot(DB_URL),UserModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
