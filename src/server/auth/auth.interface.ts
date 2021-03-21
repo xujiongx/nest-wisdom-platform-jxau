@@ -9,4 +9,5 @@ export interface User extends Document {
   readonly nickName: string;
   readonly openid: string;
   readonly province: string;
+  readonly createTime: string;
 }

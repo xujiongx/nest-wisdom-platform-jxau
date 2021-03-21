@@ -16,3 +16,15 @@
   - 在controller中设置路由
 
 - 测试接口
+
+
+
+- cr报错 
+  - yarn run lint --fix
+  - 改成LF
+
+
+
+
+  参考链接：
+  

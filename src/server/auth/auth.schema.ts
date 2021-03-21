@@ -9,4 +9,5 @@ export const userSchema = new Schema({
   nickName: { type: String, required: true },
   openid: { type: String, required: true },
   province: { type: String, required: true },
+  createTime: { type: String, required: true },
 });
