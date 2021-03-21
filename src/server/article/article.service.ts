@@ -19,11 +19,16 @@ export class ArticleService {
     return await this.articleModel.deleteOne({ _id: id });
   }
 
-  async fix(id: string, article: any) {
-    return await this.articleModel.findByIdAndDelete(id, article);
+  async update(id: string, article: ArticleCreateDto) {
+    return await this.articleModel.findByIdAndUpdate(id, article);
   }
 
-  async findByOpenid(openid: string) {
-    return await this.articleModel.find({ 'author.openid': openid });
+  async findByOpenid(openid: string, type: string) {
+    return await this.articleModel
+      .find({ 'author.openid': openid, type })
+      .sort({ _id: -1 });
+  }
+  async findByType(type: string) {
+    return await this.articleModel.find({ type }).sort({ _id: -1 });
   }
 }

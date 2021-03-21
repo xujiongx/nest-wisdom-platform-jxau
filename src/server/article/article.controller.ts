@@ -1,5 +1,4 @@
-import { Body, Controller, Delete, Get, Post, Query } from '@nestjs/common';
-import { identity } from 'rxjs';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { ArticleCreateDto } from './article.dto';
 import { ArticleService } from './article.service';
 
@@ -18,15 +17,22 @@ export class ArticleController {
   async articleDelete(@Body('id') id: string) {
     return this.articleService.delete(id);
   }
-  @Post('fix')
+  @Post('update')
   async articleFix(
     @Body() articleInfo: ArticleCreateDto,
     @Body('id') id: string,
   ) {
-    return this.articleService.fix(id, articleInfo);
+    return this.articleService.update(id, articleInfo);
   }
   @Get('findByOpenid')
-  async articleFindByUser(@Query('openid') openid: string) {
-    return this.articleService.findByOpenid(openid);
+  async articleFindByUser(
+    @Query('openid') openid: string,
+    @Query('type') type: string,
+  ) {
+    return this.articleService.findByOpenid(openid, type);
+  }
+  @Get('findByType')
+  async articleFindByType(@Query('type') type: string) {
+    return this.articleService.findByType(type);
   }
 }
