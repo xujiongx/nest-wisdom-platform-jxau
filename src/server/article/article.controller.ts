@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
-import { ArticleCreateDto } from './article.dto';
+import { ArticleCreateDto, ReviewCreateDto } from './article.dto';
 import { ArticleService } from './article.service';
 
 @Controller('article')
@@ -34,5 +34,18 @@ export class ArticleController {
   @Get('findByType')
   async articleFindByType(@Query('type') type: string) {
     return this.articleService.findByType(type);
+  }
+  //点赞
+  @Post('praise')
+  async articlePraise(@Body('id') id: string) {
+    return this.articleService.praise(id);
+  }
+  //评论
+  @Post('review')
+  async articleReview(
+    @Body('review') review: ReviewCreateDto,
+    @Body('id') id: string,
+  ) {
+    return this.articleService.review(id, review);
   }
 }

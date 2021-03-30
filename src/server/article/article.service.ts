@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { ArticleCreateDto } from './article.dto';
+import { ArticleCreateDto, ReviewCreateDto } from './article.dto';
 import { Article } from './article.interface';
 
 @Injectable()
@@ -30,5 +30,17 @@ export class ArticleService {
   }
   async findByType(type: string) {
     return await this.articleModel.find({ type }).sort({ _id: -1 });
+  }
+  async praise(id: string) {
+    await this.articleModel.findByIdAndUpdate(id, {
+      $inc: { love: 1 },
+    });
+    return await this.articleModel.findById(id);
+  }
+  async review(id: string, review: ReviewCreateDto) {
+    await this.articleModel.findByIdAndUpdate(id, {
+      $addToSet: { review: review },
+    });
+    return await this.articleModel.findById(id);
   }
 }

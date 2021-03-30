@@ -1,4 +1,5 @@
 import { User } from '../auth/auth.interface';
+import { Revirew } from './article.interface';
 
 export class ArticleCreateDto {
   title: string;
@@ -7,4 +8,12 @@ export class ArticleCreateDto {
   createTime: string;
   heart: string;
   author: User;
+  love?: number;
+  review?: Revirew[];
+}
+
+export class ReviewCreateDto {
+  author: User;
+  createTime: string;
+  context: string;
 }
