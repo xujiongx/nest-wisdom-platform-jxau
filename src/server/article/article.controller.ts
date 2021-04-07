@@ -48,4 +48,12 @@ export class ArticleController {
   ) {
     return this.articleService.review(id, review);
   }
+  @Get('sortByLove')
+  async sortByLove() {
+    return this.articleService.sortByLove();
+  }
+  @Get('sortByReviewSize')
+  async sortByReviewSize() {
+    return this.articleService.sortByReviewSize();
+  }
 }

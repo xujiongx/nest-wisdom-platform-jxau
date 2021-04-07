@@ -16,4 +16,5 @@ export const articleSchema = new Schema({
   author: { type: userSchema, required: false },
   love: { type: Number, default: 0 },
   review: { type: [ReviewSchema], default: [] },
+  reviewSize: { type: Number, default: 0 },
 });

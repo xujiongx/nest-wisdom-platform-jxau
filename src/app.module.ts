@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './server/auth/auth.module';
 import { ArticleModule } from './server/article/article.module';
+import { InformationModule } from './server/information/information.module';
 
 const DB_URL =
   'mongodb+srv://admin:a11049900@cluster0.xql4k.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
@@ -15,6 +16,7 @@ const DB_URL =
     }),
     AuthModule,
     ArticleModule,
+    InformationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
