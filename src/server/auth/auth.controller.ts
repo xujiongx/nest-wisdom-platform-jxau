@@ -20,4 +20,11 @@ export class AuthController {
       data: await this.authService.login(JSON.parse(userInfo)),
     };
   }
+  @Get('getUserInfo')
+  async getUserInfo(@Query('openid') openid: string) {
+    return {
+      code: 0,
+      data: await this.authService.getUserInfo(openid),
+    };
+  }
 }

@@ -26,7 +26,6 @@ export class AuthService {
       const loginUser = await this.userModel.findOne({
         openid: userInfo.openid,
       });
-      console.log(111, loginUser);
       if (!loginUser) {
         // 储存到数据库
         await this.userModel.create(userInfo);
@@ -35,5 +34,9 @@ export class AuthService {
         return { userId };
       }
     }
+  }
+
+  async getUserInfo(openid: string) {
+    return await this.userModel.findOne({ openid });
   }
 }
