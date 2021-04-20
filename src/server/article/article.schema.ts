@@ -17,4 +17,5 @@ export const articleSchema = new Schema({
   love: { type: Number, default: 0 },
   review: { type: [ReviewSchema], default: [] },
   reviewSize: { type: Number, default: 0 },
+  imgUrl: { type: String, required: false },
 });

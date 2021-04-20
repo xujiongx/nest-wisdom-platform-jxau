@@ -15,4 +15,5 @@ export interface Article extends Document {
   readonly author: User;
   readonly love?: number;
   readonly review?: Revirew[];
+  readonly imgUrl?: string;
 }
