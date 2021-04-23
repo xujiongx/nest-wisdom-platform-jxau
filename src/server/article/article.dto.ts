@@ -10,7 +10,7 @@ export class ArticleCreateDto {
   author: User;
   love?: number;
   review?: Revirew[];
-  imgUrl: string;
+  imgUrl?: string;
 }
 
 export class ReviewCreateDto {

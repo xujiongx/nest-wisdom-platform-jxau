@@ -1,9 +1,9 @@
 import { Document } from 'mongoose';
-import { User } from '../auth/auth.interface';
 
 export interface Information extends Document {
-  readonly imgUrl: string;
-  readonly introduce: string;
+  readonly imgUrl?: string;
+  readonly context: string;
   readonly createTime: string;
-  readonly author: User;
+  readonly title?: string;
+  readonly type: string;
 }
