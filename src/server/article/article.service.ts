@@ -29,7 +29,7 @@ export class ArticleService {
       .sort({ _id: -1 });
   }
   async findByType(type: string) {
-    return await this.articleModel.find({ type }).sort({ _id: -1 });
+    return await this.articleModel.find({ type }).sort({ _id: -1 }).limit(10);
   }
   async sortByLove() {
     return await this.articleModel.find().sort({ love: -1 }).limit(5);
